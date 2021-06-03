@@ -20,7 +20,7 @@ func NewTrelloProvider() *TrelloProvider {
 }
 
 func (c *TrelloProvider) Get() ([]task.Task, error) {
-	board, err := c.client.GetBoard("jYfamf8A", trello.Defaults())
+	board, err := c.client.GetBoard(os.Getenv("TRELLO_BOARD_ID"), trello.Defaults())
 	if err != nil {
 		return nil, err
 	}
